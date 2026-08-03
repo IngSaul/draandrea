@@ -25,7 +25,7 @@ import {
   IconUbicacion,
 } from '../components/icons'
 import { Foto } from '../components/Foto'
-import { FOTOS, IMAGENES } from '../data/sitio'
+import { FOTOS } from '../data/sitio'
 
 const CONFIANZA = [
   {
@@ -317,13 +317,9 @@ export default function Home() {
               aria-hidden
               className="absolute -top-6 -right-6 h-32 w-32 rounded-full bg-lavanda"
             />
-            <img
-              src={IMAGENES.retratoSecundario}
-              alt="Retrato de la Dra. Andrea García Hernández con bata blanca"
-              width={900}
-              height={1100}
-              loading="lazy"
-              decoding="async"
+            <Foto
+              foto={FOTOS.retratoSecundario}
+              sizes="(min-width: 26rem) 24rem, 100vw"
               className="relative aspect-[4/5] w-full rounded-[2rem] bg-lavanda-200 object-cover shadow-suave-lg"
               style={{ borderBottomRightRadius: '11rem' }}
             />

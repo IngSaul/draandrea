@@ -38,6 +38,13 @@ export const FOTOS = {
     alto: 1448,
     alt: 'La Dra. Andrea García Hernández, médico general, en su consultorio',
   },
+  retratoSecundario: {
+    base: '/imagenes/retrato-secundario/retrato-secundario',
+    anchos: [480, 768, 1023],
+    ancho: 1023,
+    alto: 1537,
+    alt: 'La Dra. Andrea García Hernández de pie, con camisa blanca y una laptop bajo el brazo',
+  },
   domicilio: {
     base: '/imagenes/domicilio/domicilio',
     anchos: [480, 768, 1232, 1536],
@@ -49,8 +56,6 @@ export const FOTOS = {
 
 /** Imágenes de archivo pendientes de sustituir por fotografía propia. */
 export const IMAGENES = {
-  retratoSecundario:
-    'https://images.unsplash.com/photo-1713865467253-ce0ac8477d34?w=900&h=1100&fit=crop&auto=format&q=80',
   consultorioCentro:
     'https://images.unsplash.com/photo-1776886099265-6366478b341b?w=1100&h=760&fit=crop&auto=format&q=80',
   consultorioNorte:

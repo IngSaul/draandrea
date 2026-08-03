@@ -63,9 +63,9 @@ utilidades de Tailwind (`bg-morado`, `text-rosa`, `shadow-suave`, `rounded-card`
 
 ## Pendientes de contenido
 
-Tres imágenes siguen siendo de archivo (Unsplash) en `IMAGENES`: `retratoSecundario`,
-`consultorioCentro` y `consultorioNorte`. Al recibir la fotografía propia, pásala por el
-script y muévela de `IMAGENES` a `FOTOS`.
+Dos imágenes siguen siendo de archivo (Unsplash) en `IMAGENES`: `consultorioCentro` y
+`consultorioNorte`. Al recibir la fotografía propia, pásala por el script y muévela de
+`IMAGENES` a `FOTOS`.
 
 Los datos de contacto son marcadores de posición en
 [src/data/sitio.ts](src/data/sitio.ts): `WHATSAPP`, `TELEFONO_VISIBLE`, `TELEFONO_TEL`, las
