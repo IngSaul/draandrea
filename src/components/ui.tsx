@@ -16,7 +16,8 @@ import {
   IconUbicacion,
   IconWhatsApp,
 } from './icons'
-import { IMAGENES, whatsapp } from '../data/sitio'
+import { Foto } from './Foto'
+import { FOTOS, whatsapp } from '../data/sitio'
 
 /* ---------------------------------------------------------------- Botones */
 
@@ -399,13 +400,9 @@ export function BannerCTA({
             </div>
 
             <div className="mx-auto w-full max-w-sm lg:max-w-none">
-              <img
-                src={IMAGENES.retrato}
-                alt="La Dra. Andrea García Hernández, médico general, en su consultorio"
-                width={1000}
-                height={1250}
-                loading="lazy"
-                decoding="async"
+              <Foto
+                foto={FOTOS.retrato}
+                sizes="(min-width: 1024px) 30rem, (min-width: 640px) 24rem, 100vw"
                 className="aspect-[4/5] w-full rounded-[2rem] bg-lavanda-200 object-cover shadow-suave-lg"
               />
             </div>

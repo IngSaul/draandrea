@@ -1,6 +1,7 @@
-export const WHATSAPP = 'https://wa.me/XXXXXXXXXXX'
-export const TELEFONO_VISIBLE = '+52 XXX XXX XXXX'
-export const TELEFONO_TEL = 'tel:+52XXXXXXXXXX'
+/** Formato internacional sin «+», espacios ni guiones: 52 (México) + 10 dígitos. */
+export const WHATSAPP = 'https://wa.me/523334884828'
+export const TELEFONO_VISIBLE = '+52 33 3488 4828'
+export const TELEFONO_TEL = 'tel:+523334884828'
 
 /** Abre WhatsApp con un mensaje previo según el contexto del botón. */
 export function whatsapp(mensaje?: string) {
@@ -14,13 +15,42 @@ export const NAV = [
   { to: '/contacto', label: 'Contacto' },
 ] as const
 
+/**
+ * Fotografía propia con variantes responsivas ya optimizadas.
+ * Se generan con `scripts/optimizar-imagenes.sh` y viven en `public/imagenes/`.
+ */
+export type Foto = {
+  /** Ruta sin el sufijo de ancho ni la extensión. */
+  base: string
+  /** Anchos disponibles en disco, de menor a mayor. */
+  anchos: number[]
+  /** Dimensiones del original, para reservar el espacio y evitar saltos de layout. */
+  ancho: number
+  alto: number
+  alt: string
+}
+
+export const FOTOS = {
+  retrato: {
+    base: '/imagenes/retrato/retrato',
+    anchos: [480, 768, 1086],
+    ancho: 1086,
+    alto: 1448,
+    alt: 'La Dra. Andrea García Hernández, médico general, en su consultorio',
+  },
+  domicilio: {
+    base: '/imagenes/domicilio/domicilio',
+    anchos: [480, 768, 1232, 1536],
+    ancho: 1536,
+    alto: 1024,
+    alt: 'La Dra. Andrea García Hernández toma notas durante una consulta a domicilio con un paciente adulto mayor en la sala de su casa',
+  },
+} satisfies Record<string, Foto>
+
+/** Imágenes de archivo pendientes de sustituir por fotografía propia. */
 export const IMAGENES = {
-  retrato:
-    'https://images.unsplash.com/photo-1659353888906-adb3e0041693?w=1000&h=1250&fit=crop&auto=format&q=80',
   retratoSecundario:
     'https://images.unsplash.com/photo-1713865467253-ce0ac8477d34?w=900&h=1100&fit=crop&auto=format&q=80',
-  domicilio:
-    'https://images.unsplash.com/photo-1758691462321-9b6c98c40f7e?w=1200&h=900&fit=crop&auto=format&q=80',
   consultorioCentro:
     'https://images.unsplash.com/photo-1776886099265-6366478b341b?w=1100&h=760&fit=crop&auto=format&q=80',
   consultorioNorte:
@@ -32,42 +62,44 @@ export type Consultorio = {
   nombre: string
   zona: string
   direccion: string
-  referencia: string
+  /** Punto de referencia para llegar. Opcional: no siempre hay uno. */
+  referencia?: string
   horarios: { dias: string; horas: string }[]
   imagen: string
   alt: string
   mapa: string
 }
 
-export const CONSULTORIOS: Consultorio[] = [
+const SEDES: Omit<Consultorio, 'mapa'>[] = [
   {
-    id: 'centro',
-    nombre: 'Consultorio Centro',
-    zona: 'Zona Centro',
-    direccion: 'Av. Hidalgo 245, local 3, Col. Centro, C.P. 00000',
-    referencia: 'A media cuadra de la Plaza Principal, junto a la farmacia.',
+    id: 'beatriz-hernandez',
+    nombre: 'Consultorio Beatriz Hernández',
+    zona: 'Col. Beatriz Hernández',
+    direccion: 'Calle Pedro Sánchez 2400, Col. Beatriz Hernández, 44768 Guadalajara, Jal.',
     horarios: [
-      { dias: 'Lunes a viernes', horas: '9:00 – 14:00 y 16:00 – 20:00' },
-      { dias: 'Sábado', horas: '9:00 – 14:00' },
-      { dias: 'Domingo', horas: 'Solo urgencias con cita' },
+      { dias: 'Lunes a viernes', horas: '12:00 – 13:45 y 18:00 – 20:30' },
+      { dias: 'Jueves', horas: 'Descanso' },
     ],
     imagen: IMAGENES.consultorioCentro,
-    alt: 'Sala de espera luminosa del consultorio del Centro con sillones claros y plantas',
-    mapa: 'https://www.google.com/maps/search/?api=1&query=Av.+Hidalgo+245+Centro',
+    alt: 'Sala de espera luminosa del consultorio con sillones claros y plantas',
   },
   {
-    id: 'norte',
-    nombre: 'Consultorio Norte',
-    zona: 'Fraccionamiento Las Palmas',
-    direccion: 'Calle Palma Real 18, Fracc. Las Palmas, C.P. 00000',
-    referencia: 'Frente al parque Las Palmas, con estacionamiento propio.',
+    id: 'arandas',
+    nombre: 'Consultorio Arandas',
+    zona: 'Col. Arandas',
+    direccion: 'Calle Hacienda La Calera 2910, Col. Arandas, 44720 Guadalajara, Jal.',
+    referencia: 'En el cruce con Plutarco Elías Calles.',
     horarios: [
-      { dias: 'Lunes a viernes', horas: '10:00 – 14:00 y 17:00 – 21:00' },
-      { dias: 'Sábado', horas: '10:00 – 15:00' },
-      { dias: 'Domingo', horas: 'Cerrado' },
+      { dias: 'Sábado', horas: '10:00 – 21:00' },
+      { dias: 'Domingo', horas: '10:00 – 20:00' },
     ],
     imagen: IMAGENES.consultorioNorte,
-    alt: 'Recepción del consultorio Norte con sillas modernas y señalización cálida',
-    mapa: 'https://www.google.com/maps/search/?api=1&query=Calle+Palma+Real+18+Las+Palmas',
+    alt: 'Recepción del consultorio con sillas modernas y señalización cálida',
   },
 ]
+
+/** El enlace al mapa se deriva de la dirección para que no puedan desincronizarse. */
+export const CONSULTORIOS: Consultorio[] = SEDES.map((sede) => ({
+  ...sede,
+  mapa: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(sede.direccion)}`,
+}))

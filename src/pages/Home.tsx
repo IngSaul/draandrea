@@ -24,7 +24,8 @@ import {
   IconRespiratorio,
   IconUbicacion,
 } from '../components/icons'
-import { IMAGENES } from '../data/sitio'
+import { Foto } from '../components/Foto'
+import { FOTOS, IMAGENES } from '../data/sitio'
 
 const CONFIANZA = [
   {
@@ -40,7 +41,7 @@ const CONFIANZA = [
   {
     icono: IconUbicacion,
     titulo: 'Dos consultorios',
-    texto: 'En el Centro y en Las Palmas, con horarios amplios entre semana.',
+    texto: 'Beatriz Hernández entre semana y Arandas los fines de semana.',
   },
   {
     icono: IconDomicilio,
@@ -164,14 +165,10 @@ export default function Home() {
               className="absolute -inset-x-6 -top-6 bottom-8 rounded-[3rem] bg-gradient-to-br from-morado via-morado-700 to-rosa opacity-90"
               style={{ borderTopLeftRadius: '14rem', borderBottomRightRadius: '14rem' }}
             />
-            <img
-              src={IMAGENES.retrato}
-              alt="La Dra. Andrea García Hernández, médico general, en su consultorio"
-              width={1000}
-              height={1250}
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
+            <Foto
+              foto={FOTOS.retrato}
+              sizes="(min-width: 1024px) 37rem, (min-width: 640px) 90vw, 100vw"
+              prioridad
               className="relative aspect-[4/5] w-full rounded-[2.5rem] bg-lavanda-200 object-cover shadow-suave-lg"
               style={{ borderTopLeftRadius: '13rem' }}
             />
@@ -272,13 +269,9 @@ export default function Home() {
               aria-hidden
               className="absolute -bottom-5 -left-5 h-40 w-40 rounded-[2rem] bg-rosa-100/70"
             />
-            <img
-              src={IMAGENES.domicilio}
-              alt="Médica atendiendo a un paciente adulto mayor en la sala de su casa"
-              width={1200}
-              height={900}
-              loading="lazy"
-              decoding="async"
+            <Foto
+              foto={FOTOS.domicilio}
+              sizes="(min-width: 1024px) 39rem, (min-width: 768px) 92vw, 100vw"
               className="relative aspect-[4/3] w-full rounded-[2rem] bg-lavanda-200 object-cover shadow-suave-lg transition-transform duration-500 ease-[cubic-bezier(0.22,0.61,0.36,1)] hover:scale-[1.015]"
             />
           </Aparece>

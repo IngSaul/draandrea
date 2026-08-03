@@ -37,7 +37,9 @@ export function TarjetaConsultorio({
           <IconUbicacion className="mt-0.5 h-5 w-5 shrink-0 text-rosa" />
           <span>
             {direccion}
-            <span className="mt-1 block text-[0.85rem] text-tinta-60/80">{referencia}</span>
+            {referencia && (
+              <span className="mt-1 block text-[0.85rem] text-tinta-60/80">{referencia}</span>
+            )}
           </span>
         </p>
 

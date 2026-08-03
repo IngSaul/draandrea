@@ -5,9 +5,10 @@ import { IconReloj, IconTelefono, IconWhatsApp } from '../components/icons'
 import { CONSULTORIOS, TELEFONO_TEL, TELEFONO_VISIBLE } from '../data/sitio'
 
 const HORARIOS_GENERALES = [
-  { dias: 'Lunes a viernes', horas: '9:00 – 14:00 · 16:00 – 21:00' },
-  { dias: 'Sábado', horas: '9:00 – 15:00' },
-  { dias: 'Domingo', horas: 'Urgencias con cita previa' },
+  { dias: 'Lunes a viernes', horas: '12:00 – 13:45 · 18:00 – 20:30' },
+  { dias: 'Jueves', horas: 'Descanso' },
+  { dias: 'Sábado', horas: '10:00 – 21:00' },
+  { dias: 'Domingo', horas: '10:00 – 20:00' },
 ]
 
 export default function Contacto() {

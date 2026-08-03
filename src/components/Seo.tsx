@@ -85,14 +85,18 @@ export function Seo({ titulo, descripcion, ruta, imagen }: SeoProps) {
       address: [
         {
           '@type': 'PostalAddress',
-          streetAddress: 'Av. Hidalgo 245, local 3',
-          addressLocality: 'Zona Centro',
+          streetAddress: 'Calle Pedro Sánchez 2400, Col. Beatriz Hernández',
+          addressLocality: 'Guadalajara',
+          addressRegion: 'Jalisco',
+          postalCode: '44768',
           addressCountry: 'MX',
         },
         {
           '@type': 'PostalAddress',
-          streetAddress: 'Calle Palma Real 18',
-          addressLocality: 'Fracc. Las Palmas',
+          streetAddress: 'Calle Hacienda La Calera 2910, Col. Arandas',
+          addressLocality: 'Guadalajara',
+          addressRegion: 'Jalisco',
+          postalCode: '44720',
           addressCountry: 'MX',
         },
       ],

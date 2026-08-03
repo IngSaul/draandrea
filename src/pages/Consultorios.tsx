@@ -13,7 +13,7 @@ const NOTAS = [
   {
     icono: IconUbicacion,
     titulo: 'Dos zonas de la ciudad',
-    texto: 'Elige el consultorio que te quede más cerca; tu expediente es el mismo en ambos.',
+    texto: 'Entre semana te atiendo en Beatriz Hernández y el fin de semana en Arandas; tu expediente es el mismo en ambos.',
   },
   {
     icono: IconDomicilio,
@@ -27,7 +27,7 @@ export default function Consultorios() {
     <>
       <Seo
         titulo="Consultorios y horarios"
-        descripcion="Dos consultorios médicos: Zona Centro y Fraccionamiento Las Palmas. Consulta direcciones, horarios de atención y cómo llegar."
+        descripcion="Dos consultorios médicos en Guadalajara: Col. Beatriz Hernández y Col. Arandas. Consulta direcciones, horarios de atención y cómo llegar."
         ruta="/consultorios"
       />
 
@@ -38,7 +38,7 @@ export default function Consultorios() {
               nivel="h1"
               sobretitulo="Consultorios"
               titulo="Dos consultorios pensados para quedarte cerca"
-              descripcion="Ambos con horario matutino y vespertino, acceso sencillo y la misma atención personalizada. Elige el que mejor te acomode."
+              descripcion="Uno para entre semana y otro para el fin de semana, con acceso sencillo y la misma atención personalizada en ambos."
               centrado
             />
           </Aparece>

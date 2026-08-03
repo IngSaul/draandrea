@@ -17,13 +17,36 @@ npm run preview
 
 ```
 src/
-  components/    Layout, Header, Footer, Logo, Seo, TarjetaConsultorio, ui.tsx (botones,
-                 secciones, tarjetas, banner CTA), icons.tsx
-  data/sitio.ts  Datos del sitio: navegación, teléfono/WhatsApp, imágenes y consultorios
+  components/    Layout, Header, Footer, Logo, Seo, Foto, TarjetaConsultorio, ui.tsx
+                 (botones, secciones, tarjetas, banner CTA), icons.tsx
+  data/sitio.ts  Datos del sitio: navegación, teléfono/WhatsApp, fotos y consultorios
   pages/         Home, Servicios, Consultorios, Contacto, NoEncontrado
   index.css      Sistema de diseño: tokens de marca (@theme), utilidades .contenedor,
                  .patron-marca y .aparece
+originales/      Fotografías sin optimizar (fuente de verdad, no se publican)
+public/imagenes/ Variantes optimizadas que sí se sirven, una carpeta por foto
+scripts/         Utilidades de mantenimiento
 ```
+
+## Imágenes
+
+Las fotografías propias se guardan sin optimizar en `originales/` y se convierten a
+variantes responsivas con:
+
+```bash
+scripts/optimizar-imagenes.sh originales/draandrea1.png retrato 480 768 1086
+```
+
+Eso genera, en `public/imagenes/retrato/`, un `.avif`, un `.webp` y un `.jpg` de respaldo
+por cada ancho. Después se declara la foto en `FOTOS` ([src/data/sitio.ts](src/data/sitio.ts))
+y se pinta con el componente [`<Foto>`](src/components/Foto.tsx), que arma el `<picture>`
+con `srcset` y deja que el navegador elija formato y tamaño:
+
+```tsx
+<Foto foto={FOTOS.retrato} sizes="(min-width: 1024px) 37rem, 100vw" prioridad />
+```
+
+Usa `prioridad` solo en la imagen visible al cargar la página.
 
 ## Sistema de diseño
 
@@ -39,6 +62,10 @@ utilidades de Tailwind (`bg-morado`, `text-rosa`, `shadow-suave`, `rounded-card`
 | Tipografías | Poppins (texto) · Dancing Script (`font-script`) |
 
 ## Pendientes de contenido
+
+Tres imágenes siguen siendo de archivo (Unsplash) en `IMAGENES`: `retratoSecundario`,
+`consultorioCentro` y `consultorioNorte`. Al recibir la fotografía propia, pásala por el
+script y muévela de `IMAGENES` a `FOTOS`.
 
 Los datos de contacto son marcadores de posición en
 [src/data/sitio.ts](src/data/sitio.ts): `WHATSAPP`, `TELEFONO_VISIBLE`, `TELEFONO_TEL`, las
