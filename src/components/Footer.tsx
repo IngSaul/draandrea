@@ -133,7 +133,17 @@ export function Footer() {
             © {new Date().getFullYear()} Dra. Andrea García Hernández. Todos los derechos
             reservados.
           </p>
-          <p>Cédula profesional XXXXXXX · Médico general</p>
+          <p>
+            Diseñado por{' '}
+            <a
+              href="https://avalonnova.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline-offset-4 transition-colors duration-250 hover:text-rosa hover:underline"
+            >
+              avalonnova.com
+            </a>
+          </p>
         </div>
       </div>
     </footer>

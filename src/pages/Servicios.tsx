@@ -6,6 +6,8 @@ import {
   TarjetaServicio,
   TituloSeccion,
 } from '../components/ui'
+import { Foto } from '../components/Foto'
+import { FOTOS } from '../data/sitio'
 import {
   IconAnalisis,
   IconAplicaciones,
@@ -143,32 +145,52 @@ export default function Servicios() {
         ruta="/servicios"
       />
 
-      <section className="patron-marca bg-gradient-to-b from-lavanda to-white">
-        <div className="contenedor py-14 md:py-20">
+      <section className="patron-marca relative overflow-hidden bg-gradient-to-b from-lavanda to-white">
+        <span
+          aria-hidden
+          className="absolute -top-32 -right-24 h-80 w-80 rounded-full bg-morado-300/25 blur-3xl"
+        />
+        <div className="contenedor relative grid items-center gap-10 py-14 md:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <Aparece>
             <TituloSeccion
               nivel="h1"
               sobretitulo="Servicios"
               titulo="Todo lo que puedo resolver en una sola visita"
               descripcion="Cada servicio incluye valoración médica y explicación clara del tratamiento. Elige el que necesitas y agenda directamente por WhatsApp."
-              centrado
             />
+
+            <nav aria-label="Categorías de servicios" className="mt-9">
+              <ul className="flex flex-wrap gap-2.5">
+                {CATEGORIAS.map((c) => (
+                  <li key={c.id}>
+                    <a
+                      href={`#${c.id}`}
+                      className="inline-block rounded-full bg-white px-4 py-2 text-sm font-medium text-morado-900 shadow-suave ring-1 ring-lavanda-200 transition-all duration-250 hover:-translate-y-0.5 hover:bg-morado hover:text-white hover:ring-morado"
+                    >
+                      {c.titulo}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </Aparece>
 
-          <nav aria-label="Categorías de servicios" className="mt-9">
-            <ul className="flex flex-wrap justify-center gap-2.5">
-              {CATEGORIAS.map((c) => (
-                <li key={c.id}>
-                  <a
-                    href={`#${c.id}`}
-                    className="inline-block rounded-full bg-white px-4 py-2 text-sm font-medium text-morado-900 shadow-suave ring-1 ring-lavanda-200 transition-all duration-250 hover:-translate-y-0.5 hover:bg-morado hover:text-white hover:ring-morado"
-                  >
-                    {c.titulo}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <Aparece delay={120} className="relative mx-auto w-full max-w-sm lg:max-w-none">
+            {/*
+              El encuadre se acerca a la esquina superior izquierda del original: así
+              entra el rostro y quedan fuera el campo quirúrgico del borde derecho y las
+              manos enguantadas del pie. `sizes` va inflado en la misma proporción que la
+              escala para que el navegador pida una variante con píxeles suficientes.
+            */}
+            <div className="aspect-[4/5] w-full overflow-hidden rounded-[2.5rem] bg-lavanda-200 shadow-suave-lg">
+              <Foto
+                foto={FOTOS.procedimiento}
+                sizes="(min-width: 1024px) 39rem, (min-width: 640px) 34rem, 140vw"
+                prioridad
+                className="h-full w-full origin-top-left scale-[1.4] object-cover object-top-left"
+              />
+            </div>
+          </Aparece>
         </div>
       </section>
 

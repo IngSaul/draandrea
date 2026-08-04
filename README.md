@@ -68,5 +68,5 @@ Dos imágenes siguen siendo de archivo (Unsplash) en `IMAGENES`: `consultorioCen
 `IMAGENES` a `FOTOS`.
 
 Los datos de contacto son marcadores de posición en
-[src/data/sitio.ts](src/data/sitio.ts): `WHATSAPP`, `TELEFONO_VISIBLE`, `TELEFONO_TEL`, las
-direcciones de los consultorios y la cédula profesional del pie de página.
+[src/data/sitio.ts](src/data/sitio.ts): `WHATSAPP`, `TELEFONO_VISIBLE`, `TELEFONO_TEL` y las
+direcciones de los consultorios.

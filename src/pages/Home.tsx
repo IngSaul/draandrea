@@ -12,6 +12,7 @@ import {
 } from '../components/ui'
 import {
   IconAplicaciones,
+  IconCedula,
   IconCertificados,
   IconCorazon,
   IconCuraciones,
@@ -19,6 +20,7 @@ import {
   IconDomicilio,
   IconEscudo,
   IconFamilia,
+  IconGraduacion,
   IconMano,
   IconMismoDia,
   IconRespiratorio,
@@ -103,6 +105,17 @@ const VALORES = [
     icono: IconEscudo,
     titulo: 'Prevención',
     texto: 'Revisiones y hábitos que evitan complicaciones más adelante.',
+  },
+  {
+    icono: IconGraduacion,
+    titulo: 'Egresada de UNIVA',
+    texto:
+      'Médico General por la Universidad del Valle de Atemajac (UNIVA), con formación orientada a la atención integral del paciente.',
+  },
+  {
+    icono: IconCedula,
+    titulo: 'Cédula Profesional',
+    texto: 'Cédula Profesional: 15292478',
   },
 ]
 

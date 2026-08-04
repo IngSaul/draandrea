@@ -210,6 +210,28 @@ export function IconEscudo(props: IconProps) {
   )
 }
 
+export function IconGraduacion(props: IconProps) {
+  return (
+    <Base {...props}>
+      <path d="M12 4 2.8 8.2 12 12.4l9.2-4.2z" />
+      <path d="M6.5 10.4V15c0 1.7 2.5 3 5.5 3s5.5-1.3 5.5-3v-4.6" />
+      <path d="M21.2 8.2v5" />
+    </Base>
+  )
+}
+
+export function IconCedula(props: IconProps) {
+  return (
+    <Base {...props}>
+      <rect x="2.8" y="5" width="18.4" height="14" rx="3" />
+      <circle cx="8.6" cy="11" r="2.1" />
+      <path d="M5.2 16.2a3.6 3.6 0 0 1 6.8 0" />
+      <path d="M14.8 10.2h3.8" />
+      <path d="m14.8 14 1.2 1.2 2.6-2.6" />
+    </Base>
+  )
+}
+
 export function IconMano(props: IconProps) {
   return (
     <Base {...props}>

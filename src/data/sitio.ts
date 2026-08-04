@@ -40,10 +40,24 @@ export const FOTOS = {
   },
   retratoSecundario: {
     base: '/imagenes/retrato-secundario/retrato-secundario',
-    anchos: [480, 768, 1023],
-    ancho: 1023,
-    alto: 1537,
-    alt: 'La Dra. Andrea García Hernández de pie, con camisa blanca y una laptop bajo el brazo',
+    anchos: [480, 768, 1076],
+    ancho: 1076,
+    alto: 1600,
+    alt: 'La Dra. Andrea García Hernández de pie con bata blanca, a la entrada del hospital donde ejerce',
+  },
+  retratoConsultorio: {
+    base: '/imagenes/retrato-consultorio/retrato-consultorio',
+    anchos: [480, 768, 1036],
+    ancho: 1036,
+    alto: 1518,
+    alt: 'La Dra. Andrea García Hernández sentada al escritorio de su consultorio, con uniforme clínico morado',
+  },
+  procedimiento: {
+    base: '/imagenes/procedimiento/procedimiento',
+    anchos: [480, 768, 1200],
+    ancho: 1200,
+    alto: 1600,
+    alt: 'La Dra. Andrea García Hernández, con uniforme quirúrgico, gorro y cubrebocas, realiza un procedimiento menor con material estéril',
   },
   domicilio: {
     base: '/imagenes/domicilio/domicilio',

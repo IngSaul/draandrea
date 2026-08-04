@@ -401,7 +401,7 @@ export function BannerCTA({
 
             <div className="mx-auto w-full max-w-sm lg:max-w-none">
               <Foto
-                foto={FOTOS.retrato}
+                foto={FOTOS.retratoConsultorio}
                 sizes="(min-width: 1024px) 30rem, (min-width: 640px) 24rem, 100vw"
                 className="aspect-[4/5] w-full rounded-[2rem] bg-lavanda-200 object-cover shadow-suave-lg"
               />
