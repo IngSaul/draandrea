@@ -83,6 +83,12 @@ export type Consultorio = {
   direccion: string
   /** Punto de referencia para llegar. Opcional: no siempre hay uno. */
   referencia?: string
+  /**
+   * Coordenadas exactas del lugar en Google Maps. Úsalas cuando la búsqueda
+   * por texto de `direccion` no geolocaliza el punto correcto (Google puede
+   * ubicar la calle sin acertar el número exacto).
+   */
+  coords?: { lat: number; lng: number }
   horarios: { dias: string; horas: string }[]
   imagen: string
   alt: string
@@ -98,6 +104,7 @@ const SEDES: Omit<Consultorio, 'mapa' | 'mapaIncrustado'>[] = [
     nombre: 'Consultorio Beatriz Hernández',
     zona: 'Col. Beatriz Hernández',
     direccion: 'Calle Pedro Sánchez 2400, Col. Beatriz Hernández, 44768 Guadalajara, Jal.',
+    coords: { lat: 20.6852148, lng: -103.2812853 },
     horarios: [
       { dias: 'Lunes a viernes', horas: '12:00 – 13:45 y 18:00 – 20:30' },
       { dias: 'Jueves', horas: 'Descanso' },
@@ -111,6 +118,7 @@ const SEDES: Omit<Consultorio, 'mapa' | 'mapaIncrustado'>[] = [
     zona: 'Col. Arandas',
     direccion: 'Calle Hacienda La Calera 2910, Col. Arandas, 44720 Guadalajara, Jal.',
     referencia: 'En el cruce con Plutarco Elías Calles.',
+    coords: { lat: 20.6961449, lng: -103.2875175 },
     horarios: [
       { dias: 'Sábado', horas: '10:00 – 21:00' },
       { dias: 'Domingo', horas: '10:00 – 20:00' },
@@ -120,12 +128,19 @@ const SEDES: Omit<Consultorio, 'mapa' | 'mapaIncrustado'>[] = [
   },
 ]
 
-/** Ambos mapas se derivan de la dirección para que no puedan desincronizarse. */
+/**
+ * Ambos mapas se derivan de un único punto por sede para que no puedan
+ * desincronizarse. Se usan `coords` cuando existen porque la búsqueda por
+ * texto de `direccion` a veces geolocaliza mal (Google ubica la calle pero
+ * falla el número exacto); si no hay coordenadas, se cae a buscar por texto.
+ */
 export const CONSULTORIOS: Consultorio[] = SEDES.map((sede) => {
-  const consulta = encodeURIComponent(sede.direccion)
+  const consulta = sede.coords
+    ? `${sede.coords.lat},${sede.coords.lng}`
+    : encodeURIComponent(sede.direccion)
   return {
     ...sede,
     mapa: `https://www.google.com/maps/search/?api=1&query=${consulta}`,
-    mapaIncrustado: `https://www.google.com/maps?q=${consulta}&z=16&hl=es&output=embed`,
+    mapaIncrustado: `https://www.google.com/maps?q=${consulta}&z=17&hl=es&output=embed`,
   }
 })
