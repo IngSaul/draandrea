@@ -14,11 +14,7 @@ const HORARIOS_GENERALES = [
 export default function Contacto() {
   return (
     <>
-      <Seo
-        titulo="Contacto por WhatsApp"
-        descripcion="Contacta a la Dra. Andrea García Hernández por WhatsApp o teléfono. Horarios de atención, ubicación de ambos consultorios y consulta a domicilio."
-        ruta="/contacto"
-      />
+      <Seo ruta="/contacto" />
 
       <section className="patron-marca bg-gradient-to-b from-lavanda to-white">
         <div className="contenedor py-14 md:py-20">

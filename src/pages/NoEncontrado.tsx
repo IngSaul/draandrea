@@ -4,11 +4,7 @@ import { Boton, BotonWhatsApp } from '../components/ui'
 export default function NoEncontrado() {
   return (
     <>
-      <Seo
-        titulo="Página no encontrada"
-        descripcion="La página que buscas no existe. Vuelve al inicio o escribe por WhatsApp para agendar tu consulta."
-        ruta="/404"
-      />
+      <Seo ruta="/404" />
       <section className="patron-marca bg-gradient-to-b from-lavanda to-white">
         <div className="contenedor flex min-h-[60vh] flex-col items-center justify-center py-20 text-center">
           <p className="font-script text-6xl text-morado-300">404</p>

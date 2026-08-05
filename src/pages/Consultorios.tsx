@@ -25,11 +25,7 @@ const NOTAS = [
 export default function Consultorios() {
   return (
     <>
-      <Seo
-        titulo="Consultorios y horarios"
-        descripcion="Dos consultorios médicos en Guadalajara: Col. Beatriz Hernández y Col. Arandas. Consulta direcciones, horarios de atención y cómo llegar."
-        ruta="/consultorios"
-      />
+      <Seo ruta="/consultorios" />
 
       <section className="patron-marca bg-gradient-to-b from-lavanda to-white">
         <div className="contenedor py-14 md:py-20">

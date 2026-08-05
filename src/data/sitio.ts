@@ -86,10 +86,13 @@ export type Consultorio = {
   horarios: { dias: string; horas: string }[]
   imagen: string
   alt: string
+  /** Enlace a Google Maps para abrir la ruta en una pestaña nueva. */
   mapa: string
+  /** Mismo punto, en la variante que Google admite dentro de un `iframe`. */
+  mapaIncrustado: string
 }
 
-const SEDES: Omit<Consultorio, 'mapa'>[] = [
+const SEDES: Omit<Consultorio, 'mapa' | 'mapaIncrustado'>[] = [
   {
     id: 'beatriz-hernandez',
     nombre: 'Consultorio Beatriz Hernández',
@@ -117,8 +120,12 @@ const SEDES: Omit<Consultorio, 'mapa'>[] = [
   },
 ]
 
-/** El enlace al mapa se deriva de la dirección para que no puedan desincronizarse. */
-export const CONSULTORIOS: Consultorio[] = SEDES.map((sede) => ({
-  ...sede,
-  mapa: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(sede.direccion)}`,
-}))
+/** Ambos mapas se derivan de la dirección para que no puedan desincronizarse. */
+export const CONSULTORIOS: Consultorio[] = SEDES.map((sede) => {
+  const consulta = encodeURIComponent(sede.direccion)
+  return {
+    ...sede,
+    mapa: `https://www.google.com/maps/search/?api=1&query=${consulta}`,
+    mapaIncrustado: `https://www.google.com/maps?q=${consulta}&z=16&hl=es&output=embed`,
+  }
+})

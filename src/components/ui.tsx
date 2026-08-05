@@ -9,13 +9,7 @@ import {
   type SVGProps,
 } from 'react'
 import { Link } from 'react-router'
-import {
-  IconDomicilio,
-  IconFlecha,
-  IconMismoDia,
-  IconUbicacion,
-  IconWhatsApp,
-} from './icons'
+import { IconDomicilio, IconMismoDia, IconUbicacion, IconWhatsApp } from './icons'
 import { Foto } from './Foto'
 import { FOTOS, whatsapp } from '../data/sitio'
 
@@ -300,37 +294,27 @@ export function TarjetaServicio({
 
 /* ------------------------------------------------------------- Mapa y CTA */
 
-export function MapaPlaceholder({ nombre, mapa }: { nombre: string; mapa: string }) {
+/**
+ * Mapa real de Google centrado en la dirección del consultorio.
+ * Se carga en diferido: la tarjeta ya se ve completa antes de que pese el mapa.
+ */
+export function MapaConsultorio({
+  nombre,
+  mapaIncrustado,
+}: {
+  nombre: string
+  mapaIncrustado: string
+}) {
   return (
-    <div
-      role="img"
-      aria-label={`Mapa de ubicación de ${nombre}`}
-      className="patron-marca relative flex h-52 items-center justify-center overflow-hidden rounded-2xl bg-lavanda ring-1 ring-lavanda-200 md:h-full md:min-h-[15rem]"
-    >
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-60"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(179,157,219,0.22) 1px, transparent 1px), linear-gradient(90deg, rgba(179,157,219,0.22) 1px, transparent 1px)',
-          backgroundSize: '34px 34px',
-        }}
+    <div className="overflow-hidden rounded-2xl bg-lavanda ring-1 ring-lavanda-200">
+      <iframe
+        title={`Mapa de ubicación de ${nombre}`}
+        src={mapaIncrustado}
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        allowFullScreen
+        className="block h-52 w-full border-0 md:h-60"
       />
-      <div className="relative flex flex-col items-center gap-2 text-center">
-        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-rosa shadow-suave">
-          <IconUbicacion className="h-6 w-6" />
-        </span>
-        <p className="text-sm font-medium text-morado-900">{nombre}</p>
-        <a
-          href={mapa}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-rosa underline-offset-4 transition-colors duration-250 hover:text-rosa-700 hover:underline"
-        >
-          Cómo llegar
-          <IconFlecha className="h-4 w-4" />
-        </a>
-      </div>
     </div>
   )
 }

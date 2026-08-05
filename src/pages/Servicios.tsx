@@ -139,11 +139,7 @@ const CATEGORIAS = [
 export default function Servicios() {
   return (
     <>
-      <Seo
-        titulo="Servicios médicos"
-        descripcion="Consulta general, procedimientos, curaciones, suturas, certificados médicos y consulta a domicilio. Agenda cualquier servicio por WhatsApp."
-        ruta="/servicios"
-      />
+      <Seo ruta="/servicios" />
 
       <section className="patron-marca relative overflow-hidden bg-gradient-to-b from-lavanda to-white">
         <span

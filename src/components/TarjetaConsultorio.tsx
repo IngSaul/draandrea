@@ -1,5 +1,5 @@
 import { IconFlecha, IconReloj, IconUbicacion } from './icons'
-import { BotonWhatsApp, MapaPlaceholder } from './ui'
+import { BotonWhatsApp, MapaConsultorio } from './ui'
 import type { Consultorio } from '../data/sitio'
 
 export function TarjetaConsultorio({
@@ -9,7 +9,8 @@ export function TarjetaConsultorio({
   consultorio: Consultorio
   compacto?: boolean
 }) {
-  const { nombre, zona, direccion, referencia, horarios, imagen, alt, mapa } = consultorio
+  const { nombre, zona, direccion, referencia, horarios, imagen, alt, mapa, mapaIncrustado } =
+    consultorio
 
   return (
     <article className="group overflow-hidden rounded-[2rem] bg-white shadow-suave ring-1 ring-lavanda-200/70 transition-all duration-300 ease-[cubic-bezier(0.22,0.61,0.36,1)] hover:-translate-y-1 hover:shadow-suave-lg">
@@ -59,7 +60,7 @@ export function TarjetaConsultorio({
         </div>
 
         <div className="mt-6">
-          <MapaPlaceholder nombre={nombre} mapa={mapa} />
+          <MapaConsultorio nombre={nombre} mapaIncrustado={mapaIncrustado} />
         </div>
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">

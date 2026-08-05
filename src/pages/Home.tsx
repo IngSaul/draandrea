@@ -122,11 +122,7 @@ const VALORES = [
 export default function Home() {
   return (
     <>
-      <Seo
-        titulo="Médico general con atención el mismo día"
-        descripcion="Consulta médica general en dos consultorios y a domicilio. Atención cercana, profesional y sin largas esperas para toda la familia. Agenda por WhatsApp."
-        ruta="/"
-      />
+      <Seo ruta="/" />
 
       {/* ------------------------------------------------------------ Hero */}
       <section className="patron-marca relative overflow-hidden bg-gradient-to-b from-lavanda via-lavanda/60 to-white">
