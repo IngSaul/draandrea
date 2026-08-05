@@ -154,7 +154,7 @@ Los datos de contacto son marcadores de posición en
 direcciones de los consultorios. `TELEFONO_VISIBLE` también alimenta la ficha de Google
 (`Physician`), así que al corregirlo se corrige en los dos lados.
 
-El dominio `SITIO` de [src/data/seo.ts](src/data/seo.ts) es `https://dra-andreagarcia.mx`. De él
-salen todas las URL absolutas de las etiquetas —`og:url`, `og:image`, la canónica— y va impreso
-en la tarjeta. Si el sitio termina en otro dominio, hay que cambiarlo ahí y volver a correr
-`scripts/generar-og.sh`.
+El dominio definitivo es `https://draandreagarciahernandez.com`, en `SITIO`
+([src/data/seo.ts](src/data/seo.ts)). De él salen todas las URL absolutas de las etiquetas
+—`og:url`, `og:image`, la canónica, el sitemap y el `Sitemap:` de `robots.txt`— y va impreso en
+la tarjeta. Si algún día cambia, se edita ahí y se vuelve a correr `scripts/generar-og.sh`.

@@ -155,7 +155,7 @@ cat > "$TRABAJO/tarjeta.html" <<HTML
       <div class="regla"></div>
       <p class="especialidad">M&eacute;dico general</p>
       <p class="lema">Tu salud es mi prioridad</p>
-      <p class="sitio">dra-andreagarcia.mx</p>
+      <p class="sitio">draandreagarciahernandez.com</p>
     </div>
     <img class="foto" src="data:image/jpeg;base64,$FOTO" alt="">
   </div>

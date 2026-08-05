@@ -18,7 +18,7 @@ import { TELEFONO_VISIBLE } from './sitio.ts'
  * como llamadas al DOM: así una misma definición sirve para los dos caminos.
  */
 
-export const SITIO = 'https://dra-andreagarcia.mx'
+export const SITIO = 'https://draandreagarciahernandez.com'
 export const NOMBRE = 'Dra. Andrea García Hernández'
 
 /**
